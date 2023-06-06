@@ -1,80 +1,80 @@
-class tree {
-    constructor(value){
-        this.value= value
-        this.left= null
-        this.right= null
-    }
-}
+// class tree {
+//     constructor(value){
+//         this.value= value
+//         this.left= null
+//         this.right= null
+//     }
+// }
 
 
-class bst{
-    constructor(){
-        this.root= null
-    }
+// class bst{
+//     constructor(){
+//         this.root= null
+//     }
 
-    isEmty(){
-        return this.root===null
-    }
+//     isEmty(){
+//         return this.root===null
+//     }
 
-    insert(value){
-      const  newnode= new tree(value)
-        if (this.isEmty()) {
-            this.root= newnode
+//     insert(value){
+//       const  newnode= new tree(value)
+//         if (this.isEmty()) {
+//             this.root= newnode
             
-        }else{
-           this.insertnode(this.root, newnode)
-        }
-    }
+//         }else{
+//            this.insertnode(this.root, newnode)
+//         }
+//     }
 
-    insertnode(root, newnode){
+//     insertnode(root, newnode){
         
-        if (newnode.value <root.value) {
-            if (root.left==null) {
-                root.left= newnode
+//         if (newnode.value <root.value) {
+//             if (root.left==null) {
+//                 root.left= newnode
                 
-            }else{
-                this.insertnode(root.left,newnode)
-            }
+//             }else{
+//                 this.insertnode(root.left,newnode)
+//             }
             
-        }else{
-            if (root.right==null) {
-                root.right= newnode
+//         }else{
+//             if (root.right==null) {
+//                 root.right= newnode
                 
-            }else{
-                this.insertnode(root.right,newnode)
-            }
-        }
-    }
+//             }else{
+//                 this.insertnode(root.right,newnode)
+//             }
+//         }
+//     }
 
 
-    search(root, value){
-        if (!root) {
+//     search(root, value){
+//         if (!root) {
 
-            return false
+//             return false
             
-        }else{
-            if (root.value===value) {
-                return root.value  
-            }else if(root.value>value){
-                return this.search(root.left, value)
-            }else{
-                return this.search(root.right, value)
-            }
-        }
-    }
-}
+//         }else{
+//             if (root.value===value) {
+//                 return root.value  
+//             }else if(root.value>value){
+//                 return this.search(root.left, value)
+//             }else{
+//                 return this.search(root.right, value)
+//             }
+//         }
+//     }
+// }
 
-const treee= new bst()
+// const treee= new bst()
 
 
-treee.insert(45)
-treee.insert(5)
-treee.insert(85)
-treee.insert(13)
+// treee.insert(45)
+// treee.insert(5)
+// treee.insert(85)
+// treee.insert(13)
 
-console.log(treee.search(treee.root,85))
-console.log(treee.search(treee.root,13))
-console.log(treee.search(treee.root,98))
+// console.log(treee.search(treee.root,85))
+// console.log(treee.search(treee.root,13))
+// console.log(treee.search(treee.root,98))
 
 class tree{
     constructor(value){
@@ -170,6 +170,87 @@ class treebst{
             
         }
     }
+
+    bfslevelorder(){
+        const queue= []
+        queue.push(this.root)
+        while (queue.length) {
+
+            let curr= queue.shift()
+            console.log(curr);
+            
+        
+        if (curr.left) {
+
+            queue.push(curr.left)
+            
+        }if(curr.right){
+            queue.push(curr.right)
+        }
+    }
+        
+    }
+
+    min(root){
+        if (!root.left) {
+          
+            return root.value
+            
+        }else{
+          
+            return this.min(root.left)
+        }
+    }
+
+
+    max(root){
+        if (!root.right) {
+            return root.value
+        }else{
+            return this.max(root.right)
+        }
+    }
+
+    delete(value){
+        this.root= this.deletevalue(this.root,value)
+    }
+
+    deletevalue(root,value){
+        if (root==null) {
+
+            return root
+            
+        }
+        if (root.value>value) {
+            
+            root.left= this.deletevalue(root.left,value)
+        }else if(root.value<value){
+          
+
+            root.right= this.deletevalue(root.right,value)
+        }else{
+           
+            if (!root.left && !root.right) {
+
+                return null
+                
+            }
+             if(!root.left){
+
+                 return root.right
+
+            }else if(!root.right){
+                return root.left
+            }
+
+            root.value= this.min(root.right)
+            root.right= this.deletevalue(root.right,root.value)
+            
+        }
+        return root
+    }
+
+
 }
 
 
@@ -179,9 +260,13 @@ list.insert(34)
 list.insert(74)
 list.insert(66)
 list.insert(12)
+list.insert(10)
 list.insert(89)
 
-list.postorder(list.root)
+list.delete(66)
+
+list.inorder(list.root)
+
 
 
 
