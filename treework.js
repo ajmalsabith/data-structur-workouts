@@ -185,178 +185,379 @@
 
 
 
+// class tree{
+//     constructor(value){
+//         this.value= value
+//         this.left=null
+//         this.right=null
+//     }
+// }
+
+// class treenew{
+//     constructor(){
+//         this.root=null
+//     }
+
+//     isemty(){
+//         return this.root===null
+//     }
+
+//     insert(value){
+
+//         const newnode= new tree(value)
+//         if (this.isemty()) {
+
+//             this.root=newnode
+            
+//         }else{
+//              return this.insertval(this.root,newnode)
+//         }
+//     }
+    
+//     insertval(root,newnode){
+
+        
+//         if (root.value>newnode.value) {
+
+//             if (root.left==null) {
+//                 root.left= newnode
+
+                
+                
+//             }else{
+//                  this.insertval(root.left,newnode)
+//             }
+
+          
+            
+//         }else{
+
+//             if (root.right==null) {
+//                 root.right= newnode
+//             }else{
+//                  this.insertval(root.right,newnode)
+//             }
+            
+//         }
+//     }
+
+//     search(root,value){
+
+//         return this.searchval(root,value)
+
+//     }
+//     searchval(root,value){
+//         if (!root) {
+
+//             return false
+            
+//         }
+
+//         if (root.value==value) {
+
+//             return true
+
+                        
+//         }
+//         if (root.value>value) {
+
+//            return this.searchval(root.left,value)
+            
+//         }else{
+//            return this.searchval(root.right,value)
+//         }
+//     }
+
+//     delete(value){
+//         this.root= this.deleteval(this.root,value)
+//     }
+
+//     deleteval(root,value){
+//         if (root==null) {
+//             return root
+//         }
+//         if (root.value>value) {
+
+//             root.left=this.deleteval(root.left,value)
+            
+//         }else if(root.right<value){
+//             root.right= this.deleteval(root.right,value)
+//         }else{
+//             if (!root.left&& !root.right) {
+
+//                 return null
+                
+//             }
+//             if (!root.left) {
+//                 return root.right
+                
+//             }else if (!root.right) {
+
+//                 return root.left
+                
+//             }
+//             root.value= this.min(root.right)
+//             root.right= this.deleteval(root.right,root.value)
+//         }
+//         return root
+//     }
+
+//     min(root){
+//         if (root.left==null) {
+
+//             console.log(root.value);
+            
+//         }else{
+//             this.min(root.left)
+
+//         }
+//     }
+//     max(root){
+//         if (root.right==null) {
+
+//             console.log(root.value);
+            
+//         }else{
+//             this.max(root.right)
+
+//         }
+//     }
+
+//     preeorder(root){
+//         if (!root) {
+//             null
+//         }else{
+//             console.log(root.value);
+//             this.preeorder(root.left)
+//             this.preeorder(root.right)
+//         }
+//     }
+//     inorder(root){
+//         if (root) {
+
+//             this.inorder(root.left)
+//             console.log(root.value);
+//             this.inorder(root.right)
+            
+//         }
+//     }
+// }
+
+
+// const list= new treenew()
+
+// list.insert(23)
+// list.insert(56)
+// list.insert(87)
+// list.insert(12)
+// list.insert(9)
+
+
+// list.delete(87)
+
+
+// list.inorder(list.root)
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
 class tree{
     constructor(value){
-        this.value= value
-        this.left=null
-        this.right=null
+        this.value=value
+        this.left= null
+        this.right= null
+
     }
 }
 
 class treenew{
     constructor(){
-        this.root=null
+        this.root= null
     }
-
     isemty(){
         return this.root===null
     }
 
     insert(value){
-
-        const newnode= new tree(value)
+     const newnode= new tree(value)
         if (this.isemty()) {
 
-            this.root=newnode
+            this.root= newnode
             
         }else{
-             return this.insertval(this.root,newnode)
+            return this.insertval(this.root,newnode)
         }
+
+    } 
+    insertval(root,newnode){
+        if (root.value>newnode.value) {
+            if(root.left==null){
+                root.left=newnode
+            }else{
+                this.insertval(root.left,newnode)
+            }
+        }else{
+            if(root.right==null){
+                root.right=newnode
+            }else{
+                this.insertval(root.right,newnode)
+            }
+        }
+
+
     }
     
-    insertval(root,newnode){
-
-        
-        if (root.value>newnode.value) {
-
-            if (root.left==null) {
-                root.left= newnode
-
-                
-                
-            }else{
-                 this.insertval(root.left,newnode)
-            }
-
-          
-            
-        }else{
-
-            if (root.right==null) {
-                root.right= newnode
-            }else{
-                 this.insertval(root.right,newnode)
-            }
-            
-        }
-    }
-
-    search(root,value){
-
-        return this.searchval(root,value)
-
-    }
-    searchval(root,value){
-        if (!root) {
-
-            return false
-            
-        }
-
-        if (root.value==value) {
-
-            return true
-
-                        
-        }
-        if (root.value>value) {
-
-           return this.searchval(root.left,value)
-            
-        }else{
-           return this.searchval(root.right,value)
-        }
-    }
-
-    delete(value){
-        this.root= this.deleteval(this.root,value)
-    }
-
-    deleteval(root,value){
-        if (root==null) {
-            return root
-        }
-        if (root.value>value) {
-
-            root.left=this.deleteval(root.left,value)
-            
-        }else if(root.right<value){
-            root.right= this.deleteval(root.right,value)
-        }else{
-            if (!root.left&& !root.right) {
-
-                return null
-                
-            }
-            if (!root.left) {
-                return root.right
-                
-            }else if (!root.right) {
-
-                return root.left
-                
-            }
-            root.value= this.min(root.right)
-            root.right= this.deleteval(root.right,root.value)
-        }
-        return root
-    }
-
-    min(root){
-        if (root.left==null) {
-
-            console.log(root.value);
-            
-        }else{
-            this.min(root.left)
-
-        }
-    }
-    max(root){
-        if (root.right==null) {
-
-            console.log(root.value);
-            
-        }else{
-            this.max(root.right)
-
-        }
-    }
-
     preeorder(root){
         if (!root) {
-            null
+
+            return null
+            
         }else{
             console.log(root.value);
             this.preeorder(root.left)
             this.preeorder(root.right)
         }
+
+
     }
     inorder(root){
-        if (root) {
+        if (!root) {
 
+            return null
+            
+        }else{
             this.inorder(root.left)
             console.log(root.value);
             this.inorder(root.right)
+        }
+    }
+
+    postorder(root){
+        if (!root) {
+            return null
+            
+        }else{
+            this.inorder(root.left)
+            console.log(root.value);
+            this.inorder(root.right)
+        }
+    }
+
+    min(root){
+        if(!root.left){
+            console.log(root.value);
+        }else{
+            this.min(root.left)
+        }
+    }
+
+    max(root){
+        if(!root.left){
+            console.log(root.value);
+        }else{
+            this.max(root.left)
+        }
+    }
+
+
+    delete(value){
+        this.root= this.deleteval(this.root,value)
+    }
+
+    levelorder(){
+
+        let queue=[]
+        queue.push(this.root)
+        while(queue.length) {
+
+         let curr=  queue.shift()
+         console.log(curr.value);
+          if (curr.left) {
+
+            queue.push(curr.left)
+            
+          }
+          if (curr.right) {
+
+            queue.push(curr.right)
+            
+          }
+
+            
+        }
+
+
+    }
+
+    bfs(){
+        let queue=[]
+        queue.push(this.root)
+        
+        while (queue.length) {
+            let curr= queue.shift()
+            console.log(queue.root);
+            if (curr.left) {
+
+                queue.push(curr.left)
+                
+            }
+            if (curr.right) {
+
+                queue.push(curr.right)
+                
+            }
             
         }
     }
-}
 
+    deleteval(root,value){
+
+        if (root==null) {
+            return root
+        } 
+        if (root.value>value) {
+
+          root.left=  this.deleteval(root.left,value)
+            
+        }else if(root.value<value){
+           root.right= this.deleteval(root.right,value)
+          
+        }else{
+            if (!root.left && !root.right) {
+
+                return null
+                
+            }
+            if(!root.left){
+
+                return root.right
+
+            }else if(!root.right){
+                return root.left
+            }
+
+            root.value= root.right.value
+            root.right= this.deleteval(root.right,root.value)
+        }
+        return root
+
+    }
+
+}
 
 const list= new treenew()
 
+
+list.insert(54)
+list.insert(67)
 list.insert(23)
-list.insert(56)
-list.insert(87)
-list.insert(12)
+list.insert(32)
 list.insert(9)
 
+list.levelorder()
 
-list.delete(87)
-
-
-list.inorder(list.root)
+// list.preeorder(list.root)
 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+
