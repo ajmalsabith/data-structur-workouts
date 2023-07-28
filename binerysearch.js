@@ -23,7 +23,7 @@
 // }   
 // if(left>right){
 //     console.log('value not found');
-// }
+// }   
 
 // function search (arr,tar){
 //     let leftindex = 0

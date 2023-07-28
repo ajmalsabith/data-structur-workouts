@@ -23,7 +23,7 @@
 
 // function insertionsort(array){
 
-//     for (let i = 0; i < array.length-1; i++) {
+//     for (let i = 1; i < array.length-1; i++) {
 //        let current= array[i]
 //        let j= i-1
 
